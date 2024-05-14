@@ -42,4 +42,7 @@ ShoppingCarts Table
 + UserID (Foreign Key)
 + ProductID (Foreign Key)
 + Quantity
+![image](https://github.com/5highest1/Building-Materials-Store/assets/154591207/499d37c2-9446-4ae8-83c9-25eebdb01f0d)
+![image](https://github.com/5highest1/Building-Materials-Store/assets/154591207/07b44ee5-b197-4e73-93b4-2a197260e075)
+
 
