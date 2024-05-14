@@ -43,7 +43,3 @@ ShoppingCarts Table
 + ProductID (Foreign Key)
 + Quantity
 
-Wishlists Table
-+ WishlistID (Primary Key)
-+ UserID (Foreign Key)
-+ ProductID (Foreign Key)
