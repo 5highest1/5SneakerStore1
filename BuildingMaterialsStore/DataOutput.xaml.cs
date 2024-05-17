@@ -107,7 +107,7 @@ namespace BuildingMaterialsStore
 
         private void ListGoods_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            //тест строка
         }
     }
 }
