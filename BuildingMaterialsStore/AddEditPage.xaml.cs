@@ -20,9 +20,29 @@ namespace BuildingMaterialsStore
     /// </summary>
     public partial class AddEditPage : Page
     {
+        private Products_Table _currentMaterials = new Products_Table ();
         public AddEditPage()
         {
             InitializeComponent();
+            DataContext = _currentMaterials;
+            ComboProduct.ItemsSource = Entities.GetContext().Products_Table.ToList ();
+        }
+
+        private void ButtonSave_Click(object sender, RoutedEventArgs e)
+        {
+            StringBuilder errors = new StringBuilder ();
+            if (string.IsNullOrWhiteSpace(_currentMaterials.Name))
+                errors.AppendLine("Укажите название материала");
+            if (string.IsNullOrWhiteSpace(_currentMaterials.Description))
+                errors.AppendLine("Укажите описание товара");
+            if (_currentMaterials.CategoryID == null)
+                errors.AppendLine("Выберете категорию");
+
+            if (errors.Length > 0)
+            {
+                MessageBox.Show(errors.ToString());
+                return;
+            }
         }
     }
 }
