@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:BuildingMaterialsStore"
       mc:Ignorable="d" 
       d:DesignHeight="764" d:DesignWidth="1300"
-      Title="DataOutput" Background="#FF23DABD">
+      Title="DataOutput" Background="#FF23DABD" IsVisibleChanged="Page_IsVisibleChanged">
 
     <Grid x:Name="papahapa" Margin="10,124,0,0">
         <Grid.ColumnDefinitions>
@@ -15,7 +15,7 @@
             <ColumnDefinition Width="480*"/>
             <ColumnDefinition Width="23*"/>
         </Grid.ColumnDefinitions>
-        <ListView x:Name="ListGoods" ScrollViewer.CanContentScroll="False" Background="Transparent" Margin="-8,1,-19,-11" d:ItemsSource="{d:SampleData ItemCount=5}" FontSize="18" FontFamily="Bahnschrift SemiBold" RenderTransformOrigin="0.5,0.5" SelectedItem="{Binding selectedProductsEdit}" Grid.ColumnSpan="4" SelectionChanged="ListGoods_SelectionChanged">
+        <ListView x:Name="ListGoods" ScrollViewer.CanContentScroll="False" Background="Transparent" Margin="-16,-9,18,-1" d:ItemsSource="{d:SampleData ItemCount=5}" FontSize="18" FontFamily="Bahnschrift SemiBold" RenderTransformOrigin="0.5,0.5" SelectedItem="{Binding selectedProductsEdit}" Grid.ColumnSpan="4" SelectionChanged="ListGoods_SelectionChanged">
             <ListView.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -79,5 +79,7 @@
         <Label Grid.Column="1" Content="Категория" HorizontalAlignment="Left" Margin="177,-105,0,0" VerticalAlignment="Top" Height="26" Width="66"/>
         <Label Grid.Column="1" Content="Цена" Margin="332,-105,129,0" VerticalAlignment="Top" Height="26"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="42,-100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="44"><Run Language="ru-ru" Text="Поиск"/></TextBlock>
+        <Button x:Name="Add" Grid.Column="1" Content="Добавить" HorizontalAlignment="Left" Margin="560,-84,0,0" VerticalAlignment="Top" Height="48" Width="116" Click="Button_Click_1"/>
+        <Button Grid.Column="2" Content="Удалить" HorizontalAlignment="Left" Margin="52,-80,0,0" VerticalAlignment="Top" Height="44" Width="118" Click="Button_Click_2"/>
     </Grid>
 </Page>

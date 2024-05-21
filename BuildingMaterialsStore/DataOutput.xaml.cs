@@ -109,5 +109,45 @@ namespace BuildingMaterialsStore
         {
             //тест строка
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            AppFrame.framemain.Navigate(new AddEditPage());
+        }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                Entities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                ListGoods.ItemsSource = Entities.GetContext().Products_Table.ToList();
+            }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            var Oblimilo = ListGoods.SelectedItems.Cast<Products_Table>().ToList();
+
+            if (MessageBox.Show($"Вы точно хотите удалить следующие {Oblimilo.Count()} элементов?", "Внимание",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    Entities.GetContext().Products_Table.RemoveRange(Oblimilo);
+                    Entities.GetContext().SaveChanges();
+                    MessageBox.Show("ДАННЫЕ УДАЛЕНЫ");
+
+                    ListGoods.ItemsSource = Entities.GetContext().Products_Table.ToList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
+
+
+        }
+
     }
-}
+    }
+

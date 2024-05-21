@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,29 +22,36 @@ namespace BuildingMaterialsStore
     /// </summary>
     public partial class AddEditPage : Page
     {
-        private Products_Table _currentMaterials = new Products_Table ();
         public AddEditPage()
         {
             InitializeComponent();
-            DataContext = _currentMaterials;
-            ComboProduct.ItemsSource = Entities.GetContext().Products_Table.ToList ();
+            ComboProduct.ItemsSource = Entities.GetContext().Categories_Table.Select(x => x.Name).ToList();
         }
 
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
-            StringBuilder errors = new StringBuilder ();
-            if (string.IsNullOrWhiteSpace(_currentMaterials.Name))
-                errors.AppendLine("Укажите название материала");
-            if (string.IsNullOrWhiteSpace(_currentMaterials.Description))
-                errors.AppendLine("Укажите описание товара");
-            if (_currentMaterials.CategoryID == null)
-                errors.AppendLine("Выберете категорию");
-
-            if (errors.Length > 0)
+            try
             {
-                MessageBox.Show(errors.ToString());
-                return;
+                Products_Table goodsobj = new Products_Table()
+                {
+                    Name = Nametb.Text,
+                    Description = Descriptiontb.Text,
+                    Price = pricetb.Text,
+                    CategoryID = Convert.ToInt32(ComboProduct.SelectedIndex + 1),
+                    ImageURL = "16.jpg",
+                };
+                AppConnect.modeldb.Products_Table.Add(goodsobj);
+                AppConnect.modeldb.SaveChanges();
+                MessageBox.Show("Товар успешно добавлен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                AppFrame.framemain.Navigate(new DataOutput());
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка при добавлении данных!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+       
     }
 }
+
