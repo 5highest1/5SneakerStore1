@@ -13,25 +13,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-
-namespace BuildingMaterialsStore
+namespace BuildingMaterialsStore.LogReg
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для Login.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Login : Page
     {
-        public MainWindow()
+        public Login()
         {
             InitializeComponent();
-
-            AppConnect.modeldb = new Entities2();
-            AppFrame.framemain = fMain;
-
-            fMain.Navigate(new DataOutput());
         }
 
-        private void fMain_Navigated(object sender, NavigationEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
 
         }

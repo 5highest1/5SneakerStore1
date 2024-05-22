@@ -28,9 +28,11 @@ namespace BuildingMaterialsStore
         public string PasswordHash { get; set; }
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
+        public int IDRole { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Orders_Table> Orders_Table { get; set; }
+        public virtual Role Role { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ShoppingCarts_Table> ShoppingCarts_Table { get; set; }
     }

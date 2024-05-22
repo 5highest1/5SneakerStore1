@@ -24,18 +24,18 @@ namespace BuildingMaterialsStore
         public DataOutput()
         {
             InitializeComponent();
-            List<Products_Table> Prodects_Table = AppConnect.modeldb.Products_Table.ToList();
+            List<Products_Table> Products_Table = AppConnect.modeldb.Products_Table.ToList();
 
-            if (Prodects_Table.Count > 0)
+            if (Products_Table.Count > 0)
             {
-                tbCounter.Text = "Найдено" + Prodects_Table.Count + "товаров";
+                tbCounter.Text = "Найдено" + Products_Table.Count + "товаров";
             }
             else
             {
                 tbCounter.Text = "Не найдено";
             }
-            ListGoods.ItemsSource = Prodects_Table;
-            ComboFilter.ItemsSource = Entities.GetContext().Categories_Table.Select(c => c.Name).ToList();
+            ListGoods.ItemsSource = Products_Table;
+            ComboFilter.ItemsSource = Entities2.GetContext().Categories_Table.Select(c => c.Name).ToList();
             ComboSort.Items.Add("По возрастанию цены"); ComboSort.Items.Add("По убыванию цены");
         }
 
@@ -119,8 +119,8 @@ namespace BuildingMaterialsStore
         {
             if (Visibility == Visibility.Visible)
             {
-                Entities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
-                ListGoods.ItemsSource = Entities.GetContext().Products_Table.ToList();
+                Entities2.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                ListGoods.ItemsSource = Entities2.GetContext().Products_Table.ToList();
             }
         }
 
@@ -133,11 +133,11 @@ namespace BuildingMaterialsStore
             {
                 try
                 {
-                    Entities.GetContext().Products_Table.RemoveRange(Oblimilo);
-                    Entities.GetContext().SaveChanges();
+                    Entities2.GetContext().Products_Table.RemoveRange(Oblimilo);
+                    Entities2.GetContext().SaveChanges();
                     MessageBox.Show("ДАННЫЕ УДАЛЕНЫ");
 
-                    ListGoods.ItemsSource = Entities.GetContext().Products_Table.ToList();
+                    ListGoods.ItemsSource = Entities2.GetContext().Products_Table.ToList();
                 }
                 catch (Exception ex)
                 {

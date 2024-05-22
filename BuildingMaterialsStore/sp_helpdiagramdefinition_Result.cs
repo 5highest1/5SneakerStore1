@@ -10,11 +10,10 @@
 namespace BuildingMaterialsStore
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Categories_Table
+    public partial class sp_helpdiagramdefinition_Result
     {
-        public int CategoryID { get; set; }
-        public string Name { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

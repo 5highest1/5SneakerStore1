@@ -12,9 +12,18 @@ namespace BuildingMaterialsStore
     using System;
     using System.Collections.Generic;
     
-    public partial class Categories_Table
+    public partial class Role
     {
-        public int CategoryID { get; set; }
-        public string Name { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Role()
+        {
+            this.Users_Table = new HashSet<Users_Table>();
+        }
+    
+        public int ID { get; set; }
+        public string Role1 { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Users_Table> Users_Table { get; set; }
     }
 }

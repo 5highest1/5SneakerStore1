@@ -8,6 +8,6 @@ namespace BuildingMaterialsStore
 {
     internal class AppConnect
     {
-        public static Entities modeldb;
+        public static Entities2 modeldb;
     }
 }
