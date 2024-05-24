@@ -27,6 +27,51 @@ namespace BuildingMaterialsStore.LogReg
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                if (String.IsNullOrEmpty(txbEmail.Text) || String.IsNullOrWhiteSpace(txbEmail.Text))  {
+                    MessageBox.Show("Введите логин", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+            else {
+                    var userObj = AppConnect.modeldb.Users_Table.FirstOrDefault(x => x.Email == txbEmail.Text && x.PasswordHash == psbPassword.Password);
+                    if (userObj == null)
+                    {
+                        MessageBox.Show("Такого пользователя нет", "Ошибка",
+                            MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else
+                    {
+                        switch (userObj.IDRole)
+                        {
+                            case 1:
+                                MessageBox.Show("Здравсвуйте, Администротор " + userObj.FirstName + "!",
+                                "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                                AppFrame.framemain.Navigate(new DataOutput());
+                                break;
+                            case 2:
+                                MessageBox.Show("Здравсвуйте, Покупатель " + userObj.FirstName + "!",
+                                "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                                break;
+                            default:
+                                MessageBox.Show("Данные не обноружены", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Warning);
+                                break;
+                        }
+                         
+                        
+                    }
+                }
+            }
+            catch(Exception Ex)
+            {
+                MessageBox.Show("Ошибка" + Ex.Message.ToString() + "Критическая работа приложения",
+                    "Уведомление", MessageBoxButton.OK, MessageBoxImage.Warning);
+
+                    
+            }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
 
         }
     }

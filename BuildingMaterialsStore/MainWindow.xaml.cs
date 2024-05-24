@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BuildingMaterialsStore.LogReg;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,12 +29,13 @@ namespace BuildingMaterialsStore
             AppConnect.modeldb = new Entities2();
             AppFrame.framemain = fMain;
 
-            fMain.Navigate(new DataOutput());
+            fMain.Navigate(new Login());
         }
 
         private void fMain_Navigated(object sender, NavigationEventArgs e)
         {
 
         }
+      
     }
 }

@@ -9,6 +9,13 @@
       Title="Login">
 
     <Grid>
-        
+        <PasswordBox x:Name="psbPassword" HorizontalAlignment="Left" Margin="346,261,0,0" VerticalAlignment="Top" Width="120" Height="19"/>
+        <TextBox x:Name="txbEmail" HorizontalAlignment="Left" Margin="346,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="346,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="White"><Run Language="ru-ru" Text="Введите логин"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="346,240,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FFFDFDFD"><Run Language="ru-ru" Text="Введите пароль"/></TextBlock>
+        <Button Content="Регистрация" HorizontalAlignment="Left" Margin="424,310,0,0" VerticalAlignment="Top" Click="Button_Click_1" Height="33" Width="74"/>
+        <Button Content="Войти" HorizontalAlignment="Left" Margin="311,310,0,0" VerticalAlignment="Top" Click="Button_Click" Height="33" Width="75"/>
+
+
     </Grid>
 </Page>
