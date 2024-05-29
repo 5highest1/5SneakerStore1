@@ -25,7 +25,7 @@ namespace BuildingMaterialsStore
         public AddEditPage()
         {
             InitializeComponent();
-            ComboProduct.ItemsSource = Entities2.GetContext().Categories_Table.Select(x => x.Name).ToList();
+            ComboProduct.ItemsSource = Entities1.GetContext().Categories_Table.Select(x => x.Name).ToList();
         }
 
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
@@ -51,7 +51,10 @@ namespace BuildingMaterialsStore
             }
         }
 
-       
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            AppFrame.framemain.GoBack();
+        }
     }
 }
 

@@ -26,7 +26,7 @@ namespace BuildingMaterialsStore
         {
             InitializeComponent();
 
-            AppConnect.modeldb = new Entities2();
+            AppConnect.modeldb = new Entities1();
             AppFrame.framemain = fMain;
 
             fMain.Navigate(new Login());

@@ -15,19 +15,20 @@ namespace BuildingMaterialsStore
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class Entities2 : DbContext
+    public partial class Entities1 : DbContext
     {
-        private static Entities2 _context; 
-        public Entities2()
-             : base("name=Entities2")
+       private static Entities1 _context;
+        public Entities1()
+            : base("name=Entities1")
         {
         }
-        public static Entities2 GetContext()
+        public static Entities1 GetContext()
         {
-            if (_context == null) _context = new Entities2();
+            if (_context == null)
+                _context = new Entities1();
             return _context;
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

@@ -44,13 +44,14 @@ namespace BuildingMaterialsStore.LogReg
                         switch (userObj.IDRole)
                         {
                             case 1:
-                                MessageBox.Show("Здравсвуйте, Администротор " + userObj.FirstName + "!",
+                                MessageBox.Show("Здравсвуйте, Администратор " + userObj.FirstName + "!",
                                 "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                                 AppFrame.framemain.Navigate(new DataOutput());
                                 break;
                             case 2:
                                 MessageBox.Show("Здравсвуйте, Покупатель " + userObj.FirstName + "!",
                                 "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                                AppFrame.framemain.Navigate(new UsersProducts());
                                 break;
                             default:
                                 MessageBox.Show("Данные не обноружены", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -69,10 +70,9 @@ namespace BuildingMaterialsStore.LogReg
                     
             }
         }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Log_Click(object sender, RoutedEventArgs e)
         {
-
+            AppFrame.framemain.Navigate(new Reg());
         }
     }
 }

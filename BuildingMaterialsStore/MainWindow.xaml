@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="780" Width="1300" MinWidth="1300" MinHeight="780" MaxWidth="1300" MaxHeight="780">
     <Grid Background="#FF63FFDF">
-        <Frame x:Name="fMain" Content="Frame" Navigated="fMain_Navigated" Margin="0,115,0,0">
+        <Frame x:Name="fMain" Content="Frame" Navigated="fMain_Navigated" Margin="0,115,0,0" NavigationUIVisibility="Hidden">
             <UIElement.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
