@@ -34,7 +34,7 @@ namespace BuildingMaterialsStore
                 tbCounter.Text = "Не найдено";
             }
             ListGoods.ItemsSource = Products_Table;
-            ComboFilter.ItemsSource = Entities1.GetContext().Categories_Table.Select(c => c.Name).ToList();
+            ComboFilter.ItemsSource = Entities2.GetContext().Categories_Table.Select(c => c.Name).ToList();
             ComboSort.Items.Add("По возрастанию цены"); ComboSort.Items.Add("По убыванию цены");
         }
 
@@ -44,6 +44,71 @@ namespace BuildingMaterialsStore
 
         }
 
-      
+        private void ComboSort_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            FindProduct();
+        }
+        Products_Table[] FindProduct()
+        {
+            var product = AppConnect.modeldb.Products_Table.ToList();
+            var productall = product;
+            if (TextSearch != null)
+            {
+                product = product.Where(x => x.Name.ToLower().Contains(TextSearch.Text.ToLower())).ToList();
+
+            }
+            if (ComboFilter.SelectedIndex >= 0)
+            {
+                switch (ComboFilter.SelectedIndex)
+                {
+                    case 0:
+                        product = product.Where(x => x.CategoryID == 1).ToList();
+                        break;
+                    case 1:
+                        product = product.Where(x => x.CategoryID == 2).ToList();
+                        break;
+                    case 2:
+                        product = product.Where(x => x.CategoryID == 3).ToList();
+                        break;
+                    case 3:
+                        product = product.Where(x => x.CategoryID == 4).ToList();
+                        break;
+                    case 4:
+                        product = product.Where(x => x.CategoryID == 6).ToList();
+                        break;
+                }
+            }
+            if (ComboSort.SelectedIndex >= 0)
+            {
+                switch (ComboSort.SelectedIndex)
+                {
+                    case 0:
+                        product = product.OrderBy(x => x.Price).ToList();
+                        break;
+                    case 1:
+                        product = product.OrderByDescending(x => x.Price).ToList();
+                        break;
+                }
+
+            }
+
+            ListGoods.ItemsSource = product;
+            return product.ToArray();
+        }
+
+        private void ComboFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            FindProduct();
+        }
+
+        private void sbrosc_Click(object sender, RoutedEventArgs e)
+        {
+            ComboFilter.SelectedIndex = -1;
+        }
+
+        private void sbrosp_Click(object sender, RoutedEventArgs e)
+        {
+            ComboSort.SelectedIndex = -1;
+        }
     }
 }

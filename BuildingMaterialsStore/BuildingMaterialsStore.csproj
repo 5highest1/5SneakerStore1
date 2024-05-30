@@ -70,7 +70,7 @@
     <Compile Include="AppConnect.cs" />
     <Compile Include="AppFrame.cs" />
     <Compile Include="Categories_Table.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="DataOutput.xaml.cs">
       <DependentUpon>DataOutput.xaml</DependentUpon>
@@ -81,40 +81,50 @@
     <Compile Include="LogReg\Reg.xaml.cs">
       <DependentUpon>Reg.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model2.cs">
+    <Compile Include="Model3.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model3.edmx</DependentUpon>
     </Compile>
     <Compile Include="OrderDetails_Table.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="Orders_Table.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="Products_Table.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="Role.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="ShoppingCarts_Table.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="sp_helpdiagrams_Result.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagrams.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="UsersProducts.xaml.cs">
       <DependentUpon>UsersProducts.xaml</DependentUpon>
     </Compile>
     <Compile Include="Users_Table.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Page Include="AddEditPage.xaml">
       <SubType>Designer</SubType>
@@ -150,16 +160,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model2.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model2.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model2.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -177,12 +177,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model2.edmx">
+    <EntityDeploy Include="Model3.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model2.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model3.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model2.edmx.diagram">
-      <DependentUpon>Model2.edmx</DependentUpon>
+    <None Include="Model3.edmx.diagram">
+      <DependentUpon>Model3.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -215,15 +215,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model2.Context.tt">
+    <Content Include="Model3.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model2.edmx</DependentUpon>
-      <LastGenOutput>Model2.Context.cs</LastGenOutput>
+      <DependentUpon>Model3.edmx</DependentUpon>
+      <LastGenOutput>Model3.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model2.tt">
+    <Content Include="Model3.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model2.edmx</DependentUpon>
-      <LastGenOutput>Model2.cs</LastGenOutput>
+      <DependentUpon>Model3.edmx</DependentUpon>
+      <LastGenOutput>Model3.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

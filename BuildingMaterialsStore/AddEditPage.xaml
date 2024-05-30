@@ -9,16 +9,16 @@
       Title="AddEditPage">
 
     <Grid Background="#FF23DABD">
-        <Button x:Name="btnBack" Content="Назад" HorizontalAlignment="Left" Margin="275,349,0,0" VerticalAlignment="Top" Background="#FF1EAD97" Click="btnBack_Click"/>
-        <Button x:Name="ButtonSave" Content="Сохранить" HorizontalAlignment="Left" Margin="358,349,0,0" VerticalAlignment="Top" Click="ButtonSave_Click" Background="#FF1EAD97"/>
-        <ComboBox SelectedItem="{Binding Categories_Table.Name}" x:Name="ComboProduct" HorizontalAlignment="Left" Margin="192,124,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnBack" Content="Назад" HorizontalAlignment="Center" Margin="0,349,0,0" VerticalAlignment="Top" Background="#FF1EAD97" Click="btnBack_Click" Width="80"/>
+        <Button x:Name="ButtonSave" Content="Сохранить" HorizontalAlignment="Left" Margin="460,349,0,0" VerticalAlignment="Top" Click="ButtonSave_Click" Background="#FF1EAD97"/>
+        <ComboBox SelectedValue="{Binding CategoryID}" SelectedValuePath="CategoryID" ItemsSource="{Binding Categories_Table}" DisplayMemberPath="Name" x:Name="ComboProduct" HorizontalAlignment="Left" Margin="192,124,0,0" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="Nametb" HorizontalAlignment="Left" Margin="192,200,0,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" Width="120" Height="18"/>
         <TextBox x:Name="pricetb" Text="{Binding Price}" HorizontalAlignment="Left" Margin="192,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="Descriptiontb" Text="{Binding Description}" HorizontalAlignment="Left" Margin="192,295,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="66,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="87" Foreground="Black" Background="#FF23DABD" Height="24"><Run Language="ru-ru" Text="Название"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="66,257,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FF23DABD" Width="46"><Run Language="ru-ru" Text="Цена"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="66,295,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FF23DABD" Width="91"><Run Language="ru-ru" Text="Описание"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="74,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FF23DABD"><Run Language="ru-ru" Text="Категории"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="66,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FF23DABD"><Run Language="ru-ru" Text="Категории"/></TextBlock>
 
     </Grid>
 </Page>

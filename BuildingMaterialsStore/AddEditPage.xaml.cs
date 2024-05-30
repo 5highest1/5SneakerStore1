@@ -22,13 +22,41 @@ namespace BuildingMaterialsStore
     /// </summary>
     public partial class AddEditPage : Page
     {
-        public AddEditPage()
+        private Products_Table _productsTable = new Products_Table();
+        public AddEditPage(Products_Table productsTable)
         {
             InitializeComponent();
-            ComboProduct.ItemsSource = Entities1.GetContext().Categories_Table.Select(x => x.Name).ToList();
+            ComboProduct.ItemsSource = Entities2.GetContext().Categories_Table.ToList();
+         if (productsTable != null )
+            {
+                _productsTable = productsTable;
+            }
+            DataContext = productsTable;
         }
 
-        private void ButtonSave_Click(object sender, RoutedEventArgs e)
+        private void EditGoods()
+        {
+            if(_productsTable.ProductID > 0){
+                try
+                {
+                    _productsTable.Name = Nametb.Text;
+                    _productsTable.Description = Descriptiontb.Text;
+                    _productsTable.Price = Convert.ToInt32(pricetb.Text);
+                    _productsTable.CategoryID = Convert.ToInt32(ComboProduct.SelectedIndex + 1);
+                    _productsTable.ImageURL = "16.jpg";
+                    AppConnect.modeldb.SaveChanges();
+                    MessageBox.Show("Товар успешно изменен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    AppFrame.framemain.Navigate(new DataOutput());
+                }
+                catch
+                {
+                    MessageBox.Show("Ошибка при добавлении данных!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            
+        }
+
+        private void AddGoods()
         {
             try
             {
@@ -36,7 +64,7 @@ namespace BuildingMaterialsStore
                 {
                     Name = Nametb.Text,
                     Description = Descriptiontb.Text,
-                    Price = pricetb.Text,
+                    Price = Convert.ToInt32(pricetb.Text),
                     CategoryID = Convert.ToInt32(ComboProduct.SelectedIndex + 1),
                     ImageURL = "16.jpg",
                 };
@@ -48,6 +76,18 @@ namespace BuildingMaterialsStore
             catch
             {
                 MessageBox.Show("Ошибка при добавлении данных!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void ButtonSave_Click(object sender, RoutedEventArgs e)
+        {
+            if(_productsTable.ProductID == 0)
+            {
+                AddGoods();
+            }
+            else
+            {
+                EditGoods();
             }
         }
 

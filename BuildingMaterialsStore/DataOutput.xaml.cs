@@ -35,7 +35,7 @@ namespace BuildingMaterialsStore
                 tbCounter.Text = "Не найдено";
             }
             ListGoods.ItemsSource = Products_Table;
-            ComboFilter.ItemsSource = Entities1.GetContext().Categories_Table.Select(c => c.Name).ToList();
+            ComboFilter.ItemsSource = Entities2.GetContext().Categories_Table.Select(c => c.Name).ToList();
             ComboSort.Items.Add("По возрастанию цены"); ComboSort.Items.Add("По убыванию цены");
         }
 
@@ -47,7 +47,8 @@ namespace BuildingMaterialsStore
             {
                 product = product.Where(x => x.Name.ToLower().Contains(TextSearch.Text.ToLower())).ToList();
 
-               if (ComboFilter.SelectedIndex >= 0)
+            }
+            if (ComboFilter.SelectedIndex >= 0)
                 {
                     switch (ComboFilter.SelectedIndex)
                     {
@@ -68,19 +69,19 @@ namespace BuildingMaterialsStore
                             break;
                     }
                 }
-               if (ComboSort.SelectedIndex >= 0) 
-                    switch(ComboSort.SelectedIndex)
-                    {
-                        case 0:
-                            product = product.OrderBy(x => x.Price).ToList();
-                            break;
-                        case 1:
-                            product = product.OrderByDescending(x => x.Price).ToList();
-                            break;
-                     
+               if (ComboSort.SelectedIndex >= 0) {
+                switch (ComboSort.SelectedIndex)
+                {
+                    case 0:
+                        product = product.OrderBy(x => x.Price).ToList();
+                        break;
+                    case 1:
+                        product = product.OrderByDescending(x => x.Price).ToList();
+                        break;
+                }
 
                     }
-            }
+            
             ListGoods.ItemsSource = product;
             return product.ToArray();
         }
@@ -112,15 +113,15 @@ namespace BuildingMaterialsStore
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            AppFrame.framemain.Navigate(new AddEditPage());
+            AppFrame.framemain.Navigate(new AddEditPage(null));
         }
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (Visibility == Visibility.Visible)
             {
-                Entities1.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
-                ListGoods.ItemsSource = Entities1.GetContext().Products_Table.ToList();
+                Entities2.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                ListGoods.ItemsSource = Entities2.GetContext().Products_Table.ToList();
             }
         }
 
@@ -133,11 +134,11 @@ namespace BuildingMaterialsStore
             {
                 try
                 {
-                    Entities1.GetContext().Products_Table.RemoveRange(Oblimilo);
-                    Entities1.GetContext().SaveChanges();
+                    Entities2.GetContext().Products_Table.RemoveRange(Oblimilo);
+                    Entities2.GetContext().SaveChanges();
                     MessageBox.Show("ДАННЫЕ УДАЛЕНЫ");
 
-                    ListGoods.ItemsSource = Entities1.GetContext().Products_Table.ToList();
+                    ListGoods.ItemsSource = Entities2.GetContext().Products_Table.ToList();
                 }
                 catch (Exception ex)
                 {
@@ -148,6 +149,25 @@ namespace BuildingMaterialsStore
 
         }
 
+        private void ComboSort_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            FindProduct();
+        }
+
+        private void sbrosc_Click(object sender, RoutedEventArgs e)
+        {
+            ComboFilter.SelectedIndex = -1;
+        }
+
+        private void sbrosp_Click(object sender, RoutedEventArgs e)
+        {
+            ComboSort.SelectedIndex = -1;
+        }
+
+        private void Edik_Click(object sender, RoutedEventArgs e)
+        {
+            AppFrame.framemain.Navigate(new AddEditPage((sender as Button).DataContext as Products_Table));
+        }
     }
     }
 

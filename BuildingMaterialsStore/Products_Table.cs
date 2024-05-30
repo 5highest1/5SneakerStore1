@@ -24,14 +24,15 @@ namespace BuildingMaterialsStore
         public int ProductID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public string Price { get; set; }
+        public int Price { get; set; }
         public int CategoryID { get; set; }
         public string ImageURL { get; set; }
-        public string CurrentPhoto
+
+        public string CurrentPhoto 
         {
             get
             {
-                if (string.IsNullOrEmpty(ImageURL) || String.IsNullOrWhiteSpace(ImageURL))
+                if(string.IsNullOrEmpty(ImageURL) || string.IsNullOrWhiteSpace(ImageURL))
                 {
                     return "/Image/16.jpg";
                 }
@@ -41,8 +42,8 @@ namespace BuildingMaterialsStore
                 }
             }
         }
-
-            [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetails_Table> OrderDetails_Table { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ShoppingCarts_Table> ShoppingCarts_Table { get; set; }

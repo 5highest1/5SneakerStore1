@@ -15,17 +15,18 @@ namespace BuildingMaterialsStore
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class Entities1 : DbContext
+    public partial class Entities2 : DbContext
     {
-       private static Entities1 _context;
-        public Entities1()
-            : base("name=Entities1")
+        private static Entities2 _context;
+        public Entities2()
+            : base("name=Entities2")
         {
         }
-        public static Entities1 GetContext()
+
+        public static Entities2 GetContext()
         {
             if (_context == null)
-                _context = new Entities1();
+                _context = new Entities2();
             return _context;
         }
     
