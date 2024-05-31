@@ -17,6 +17,7 @@ namespace BuildingMaterialsStore
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Users_Table()
         {
+            this.Cart_Table = new HashSet<Cart_Table>();
             this.Orders_Table = new HashSet<Orders_Table>();
             this.ShoppingCarts_Table = new HashSet<ShoppingCarts_Table>();
         }
@@ -31,9 +32,12 @@ namespace BuildingMaterialsStore
         public int IDRole { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cart_Table> Cart_Table { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Orders_Table> Orders_Table { get; set; }
         public virtual Role Role { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ShoppingCarts_Table> ShoppingCarts_Table { get; set; }
+
     }
 }

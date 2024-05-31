@@ -46,12 +46,16 @@ namespace BuildingMaterialsStore.LogReg
                             case 1:
                                 MessageBox.Show("Здравсвуйте, Администратор " + userObj.FirstName + "!",
                                 "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                                AppFrame.framemain.Navigate(new DataOutput());
+                                AppFrame.framemain.GoBack();
+                                App.Current.Properties["idUser"] = userObj.UserID;
+                                App.Current.Properties["roleUser"] = userObj.IDRole;
                                 break;
                             case 2:
                                 MessageBox.Show("Здравсвуйте, Покупатель " + userObj.FirstName + "!",
                                 "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                                 AppFrame.framemain.Navigate(new UsersProducts());
+                                App.Current.Properties["idUser"] = userObj.UserID;
+                                App.Current.Properties["roleUser"] = userObj.IDRole;
                                 break;
                             default:
                                 MessageBox.Show("Данные не обноружены", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Warning);

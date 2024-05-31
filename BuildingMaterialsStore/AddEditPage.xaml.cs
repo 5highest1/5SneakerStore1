@@ -26,7 +26,7 @@ namespace BuildingMaterialsStore
         public AddEditPage(Products_Table productsTable)
         {
             InitializeComponent();
-            ComboProduct.ItemsSource = Entities2.GetContext().Categories_Table.ToList();
+            ComboProduct.ItemsSource = Entities4.GetContext().Categories_Table.ToList();
          if (productsTable != null )
             {
                 _productsTable = productsTable;

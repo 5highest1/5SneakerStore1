@@ -34,7 +34,7 @@ namespace BuildingMaterialsStore
                 tbCounter.Text = "Не найдено";
             }
             ListGoods.ItemsSource = Products_Table;
-            ComboFilter.ItemsSource = Entities2.GetContext().Categories_Table.Select(c => c.Name).ToList();
+            ComboFilter.ItemsSource = Entities4.GetContext().Categories_Table.Select(c => c.Name).ToList();
             ComboSort.Items.Add("По возрастанию цены"); ComboSort.Items.Add("По убыванию цены");
         }
 

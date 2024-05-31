@@ -35,7 +35,7 @@ namespace BuildingMaterialsStore
                 tbCounter.Text = "Не найдено";
             }
             ListGoods.ItemsSource = Products_Table;
-            ComboFilter.ItemsSource = Entities2.GetContext().Categories_Table.Select(c => c.Name).ToList();
+            ComboFilter.ItemsSource = Entities4.GetContext().Categories_Table.Select(c => c.Name).ToList();
             ComboSort.Items.Add("По возрастанию цены"); ComboSort.Items.Add("По убыванию цены");
         }
 
@@ -120,10 +120,11 @@ namespace BuildingMaterialsStore
         {
             if (Visibility == Visibility.Visible)
             {
-                Entities2.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
-                ListGoods.ItemsSource = Entities2.GetContext().Products_Table.ToList();
+                Entities4.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                ListGoods.ItemsSource = Entities4.GetContext().Products_Table.ToList();
             }
         }
+
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
@@ -134,11 +135,11 @@ namespace BuildingMaterialsStore
             {
                 try
                 {
-                    Entities2.GetContext().Products_Table.RemoveRange(Oblimilo);
-                    Entities2.GetContext().SaveChanges();
+                    Entities4.GetContext().Products_Table.RemoveRange(Oblimilo);
+                    Entities4.GetContext().SaveChanges();
                     MessageBox.Show("ДАННЫЕ УДАЛЕНЫ");
 
-                    ListGoods.ItemsSource = Entities2.GetContext().Products_Table.ToList();
+                    ListGoods.ItemsSource = Entities4.GetContext().Products_Table.ToList();
                 }
                 catch (Exception ex)
                 {

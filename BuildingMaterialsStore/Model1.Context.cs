@@ -15,26 +15,26 @@ namespace BuildingMaterialsStore
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class Entities2 : DbContext
+    public partial class Entities4 : DbContext
     {
-        private static Entities2 _context;
-        public Entities2()
-            : base("name=Entities2")
+        public Entities4()
+            : base("name=Entities4")
         {
         }
+        private static Entities4 _context;
 
-        public static Entities2 GetContext()
+        public static Entities4 GetContext()
         {
             if (_context == null)
-                _context = new Entities2();
+                _context = new Entities4();
             return _context;
         }
-    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Cart_Table> Cart_Table { get; set; }
         public virtual DbSet<Categories_Table> Categories_Table { get; set; }
         public virtual DbSet<OrderDetails_Table> OrderDetails_Table { get; set; }
         public virtual DbSet<Orders_Table> Orders_Table { get; set; }

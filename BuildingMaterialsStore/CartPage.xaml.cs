@@ -1,5 +1,4 @@
-﻿using BuildingMaterialsStore.LogReg;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,28 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-
 namespace BuildingMaterialsStore
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для CartPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class CartPage : Page
     {
-        public MainWindow()
+        public CartPage()
         {
             InitializeComponent();
-
-            AppConnect.modeldb = new Entities4();
-            AppFrame.framemain = fMain;
-
-            fMain.Navigate(new Login());
         }
-
-        private void fMain_Navigated(object sender, NavigationEventArgs e)
-        {
-
-        }
-      
     }
 }
