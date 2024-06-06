@@ -1,4 +1,4 @@
-﻿<Page x:Class="BuildingMaterialsStore.CartPage"
+﻿<Page x:Class="BuildingMaterialsStore.CartUser"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,10 +6,10 @@
       xmlns:local="clr-namespace:BuildingMaterialsStore"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="cart">
+      Title="cartUser">
 
     <Grid Background="#FF1EAD97">
-        <ListView x:Name="cart" ScrollViewer.CanContentScroll="False" Background="#FF1EAD97" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="38,85,38,124" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Width="724" Height="241" SelectionChanged="cartbakery_SelectionChanged" ContextMenuClosing="cart_ContextMenuClosing">
+        <ListView x:Name="cart" ScrollViewer.CanContentScroll="False" Background="#FF1EAD97" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="38,85,38,124" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Width="724" Height="241" ContextMenuClosing="cart_ContextMenuClosing">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -55,7 +55,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button x:Name="orderbutton" Content="Cформировать заказ" HorizontalAlignment="Center" VerticalAlignment="Top" Height="63" Width="158" Click="orderbutton_Click_1" IsEnabled="False" Margin="0,377,0,0" Foreground="Black" Background="#FF1BAD97"/>
+        <Button x:Name="orderbutton" Content="Cформировать заказ" HorizontalAlignment="Center" VerticalAlignment="Top" Height="63" Width="158" Click="orderbutton_Click" IsEnabled="False" Margin="0,377,0,0" Foreground="Black" Background="#FF1BAD97"/>
         <Button x:Name="gobackbutton" Content="назад" HorizontalAlignment="Left" Margin="737,5,0,0" VerticalAlignment="Top" Height="31" Width="53" Foreground="Black" Background="#FFE1F2FF" Click="gobackbutton_Click"/>
     </Grid>
 </Page>

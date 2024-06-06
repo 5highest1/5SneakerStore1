@@ -46,7 +46,7 @@ namespace BuildingMaterialsStore
                     _productsTable.ImageURL = "16.jpg";
                     AppConnect.modeldb.SaveChanges();
                     MessageBox.Show("Товар успешно изменен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                    AppFrame.framemain.Navigate(new DataOutput());
+                    AppFrame.framemain.GoBack();
                 }
                 catch
                 {
@@ -71,7 +71,7 @@ namespace BuildingMaterialsStore
                 AppConnect.modeldb.Products_Table.Add(goodsobj);
                 AppConnect.modeldb.SaveChanges();
                 MessageBox.Show("Товар успешно добавлен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                AppFrame.framemain.Navigate(new DataOutput());
+                AppFrame.framemain.GoBack();
             }
             catch
             {

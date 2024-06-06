@@ -21,10 +21,20 @@ namespace BuildingMaterialsStore
     /// </summary>
     public partial class DataOutput : Page
     {
-        public DataOutput()
+
+        private Users_Table _authAdmin = new Users_Table();
+
+
+        public DataOutput(Users_Table authAdmin)
         {
             InitializeComponent();
             List<Products_Table> Products_Table = AppConnect.modeldb.Products_Table.ToList();
+
+            if (authAdmin != null)
+            {
+                _authAdmin = authAdmin;
+            }
+            DataContext = _authAdmin;
 
             if (Products_Table.Count > 0)
             {
@@ -37,6 +47,7 @@ namespace BuildingMaterialsStore
             ListGoods.ItemsSource = Products_Table;
             ComboFilter.ItemsSource = Entities4.GetContext().Categories_Table.Select(c => c.Name).ToList();
             ComboSort.Items.Add("По возрастанию цены"); ComboSort.Items.Add("По убыванию цены");
+            _authAdmin = authAdmin;
         }
 
         Products_Table[] FindProduct()
@@ -88,7 +99,7 @@ namespace BuildingMaterialsStore
 
         private void addBasket_Click(object sender, RoutedEventArgs e)
         {
-
+            AppFrame.framemain.Navigate(new CartPage());
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -124,7 +135,6 @@ namespace BuildingMaterialsStore
                 ListGoods.ItemsSource = Entities4.GetContext().Products_Table.ToList();
             }
         }
-
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {

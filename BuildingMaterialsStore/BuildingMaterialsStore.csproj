@@ -72,6 +72,9 @@
     <Compile Include="CartPage.xaml.cs">
       <DependentUpon>CartPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CartUser.xaml.cs">
+      <DependentUpon>CartUser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Cart_Table.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -137,6 +140,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CartPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CartUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

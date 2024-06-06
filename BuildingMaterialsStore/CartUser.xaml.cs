@@ -16,16 +16,26 @@ using System.Windows.Shapes;
 namespace BuildingMaterialsStore
 {
     /// <summary>
-    /// Логика взаимодействия для CartPage.xaml
+    /// Логика взаимодействия для CartUser.xaml
     /// </summary>
-    public partial class CartPage : Page
+    public partial class CartUser : Page
     {
-        public CartPage()
+        public CartUser()
         {
             InitializeComponent();
         }
 
-        private void cartbakery_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void gobackbutton_Click(object sender, RoutedEventArgs e)
+        {
+            AppFrame.framemain.GoBack();
+        }
+
+        private void cartUser_ContextMenuClosing(object sender, ContextMenuEventArgs e)
+        {
+
+        }
+
+        private void cartUser_ContextMenuClosing_1(object sender, ContextMenuEventArgs e)
         {
 
         }
@@ -34,15 +44,10 @@ namespace BuildingMaterialsStore
         {
 
         }
-        
-        private void orderbutton_Click_1(object sender, RoutedEventArgs e)
+
+        private void orderbutton_Click(object sender, RoutedEventArgs e)
         {
 
-        }
-
-        private void gobackbutton_Click(object sender, RoutedEventArgs e)
-        {
-            AppFrame.framemain.GoBack();
         }
 
         private void cart_ContextMenuClosing(object sender, ContextMenuEventArgs e)

@@ -46,9 +46,10 @@ namespace BuildingMaterialsStore.LogReg
                             case 1:
                                 MessageBox.Show("Здравсвуйте, Администратор " + userObj.FirstName + "!",
                                 "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                                AppFrame.framemain.GoBack();
+                                
                                 App.Current.Properties["idUser"] = userObj.UserID;
                                 App.Current.Properties["roleUser"] = userObj.IDRole;
+                                AppFrame.framemain.Navigate(new DataOutput(userObj));
                                 break;
                             case 2:
                                 MessageBox.Show("Здравсвуйте, Покупатель " + userObj.FirstName + "!",
